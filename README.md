@@ -1,1 +1,2 @@
-"# Ventas" 
+# Ventas
+Gestión de venta
