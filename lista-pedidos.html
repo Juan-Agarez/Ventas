@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listado de Pedidos</title>
+  <link rel="stylesheet" href="css/listado-pedidos.css" />
+  <link rel="stylesheet" href="css/fontawesome/all.min.css">
+</head>
+<body>
+
+  <!-- Contenedor principal de la tabla -->
+  <div id="tablaListadosContainer" style="display: block;">
+    <button class="close-btn-entregas" onclick="closeTablaListados()">×</button>
+    <h2><i class="fa-solid fa-file"></i> Listado de Pedidos</h2>
+   
+
+    <!-- Envoltorio de tabla para scroll -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Departamento</th>
+            <th>Ciudad</th>
+            <th>Orden de Compra</th>
+            <th>Código Siigo</th>
+            <th>Requerimiento</th>
+            <th>Referencia</th>
+            <th>Cantidad Reservada</th>
+            <th>Despacho</th>
+            <th>Pendiente</th>
+            <th>Fecha Entrega</th>
+            <th>Gestión</th>
+          </tr>
+        </thead>
+        <tbody id="tablaListadosBody">
+          <tr>
+            <td>Cliente Absrwvhbwbhwbhwbhwbhfeffevwvfwwfwefweffw</td>
+            <td>Antioquia</td>
+            <td>Medellín</td>
+            <td>OC-00123wfwefwf</td>
+            <td>SIIGO-100wefwefwefwef1</td>
+            <td>REQ-101wefwefwefwe</td>
+            <td>REF-XYZ1wefwefwef</td>
+            <td>50wefwe</td>
+            <td>25wfwe</td>
+            <td>25wefwef</td>
+            <td>2025-09-30</td>
+            <td>En Procesowefwfwef</td>
+          </tr>
+          <tr>
+            <td>Cliente B</td>
+            <td>Cundinamarca</td>
+            <td>Bogotá</td>
+            <td>OC-00456</td>
+            <td>SIIGO-1002</td>
+            <td>REQ-202</td>
+            <td>REF-XYZ2</td>
+            <td>100</td>
+            <td>60</td>
+            <td>40</td>
+            <td>2025-10-05</td>
+            <td>Confirmado</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+       
+    <div class="navegacion-contenedor">
+      <!-- Botones de paginación (izquierda) -->
+      <div class="pagination">
+        <button class="page-btn" onclick="cambiarPagina('prev')">« Anterior</button>
+        <button class="page-btn" onclick="cambiarPagina('next')">Siguiente »</button>
+      </div>
+
+      <!-- Botón de regreso (derecha) -->
+      <div class="volver-container">
+        <button class="btn-volver" onclick="volver()">Regresar</button>
+      </div>
+    </div>
+
+  </div>
+
+  
+
+  <script>
+    function closeTablaListados() {
+      document.getElementById('tablaListadosContainer').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

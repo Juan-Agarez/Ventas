@@ -66,7 +66,7 @@ const datosClientes = {
         </div>
 
         <div class="formulario-destino" id="formularioDestino">
-          <h2>Información Despacho</h2>
+          <h2>Información de Despacho</h2>
 
           <div class="form-grupo" style="position: relative;">
             <label for="departamentoEntrega">
@@ -77,13 +77,13 @@ const datosClientes = {
           </div>
 
 
-        <div class="form-grupo" id="contenedorCiudad" style="display: none; position: relative;">
-          <label for="ciudadEntrega">
-            <i class="fas fa-city"></i> Ciudad:
-          </label>
-          <input type="text" id="ciudadEntrega" placeholder="Ciudad" oninput="filtrarCiudades()" onblur="setTimeout(validarCiudadAlSalir, 200)"  autocomplete="off">
-          <ul id="sugerenciasCiudades" class="sugerencias oculto" style="position: absolute; background: white; border: 1px solid #ccc; width: 100%; max-height: 150px; overflow-y: auto; z-index: 10;"></ul>
-        </div>
+          <div class="form-grupo" id="contenedorCiudad" style="display: none; position: relative;">
+            <label for="ciudadEntrega">
+              <i class="fas fa-city"></i> Ciudad:
+            </label>
+            <input type="text" id="ciudadEntrega" placeholder="Ciudad" oninput="filtrarCiudades()" onblur="setTimeout(validarCiudadAlSalir, 200)"  autocomplete="off">
+            <ul id="sugerenciasCiudades" class="sugerencias oculto" style="position: absolute; background: white; border: 1px solid #ccc; width: 100%; max-height: 150px; overflow-y: auto; z-index: 10;"></ul>
+          </div>
 
 
 
@@ -113,13 +113,13 @@ const datosClientes = {
             <i class="fas fa-save"></i> Guardar
           </button>
 
-         <button id="btnVerPedidos" class="btn-accion" onclick="mostrarTablaPedidos()">
+          <button id="btnVerPedidos" class="btn-accion" onclick="mostrarTablaPedidos()">
             <i class="fas fa-table"></i> Ver pedidos
           </button>
 
-         <button id="btnMinimizar" style="background-color: #F6791D; color: white; border: none; padding: 12px; border-radius: 50%; font-weight: 600; font-size: 20px; cursor: pointer; display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; margin-top: 60px;" onclick="toggleMinimizado()">
-          <i class="fas fa-arrow-left" style="font-size: 18px;"></i>
-        </button>
+          <button id="btnMinimizar" style="background-color: #F6791D; color: white; border: none; padding: 12px; border-radius: 50%; font-weight: 600; font-size: 20px; cursor: pointer; display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; margin-top: 60px;" onclick="toggleMinimizado()">
+            <i class="fas fa-arrow-left" style="font-size: 18px;"></i>
+          </button>
 
 
       </div>

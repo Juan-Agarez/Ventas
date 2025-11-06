@@ -1,0 +1,138 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+#tablaListadosContainer {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 1600px;
+  height: 350px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 9999;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#tablaListadosContainer h2 {
+  color: #153c91;
+  margin-bottom: 16px;
+  font-size: 28px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* Botón de cerrar */
+.close-btn-entregas {
+  float: right;
+  background: #dd5d54;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 30px;
+  border: 2px solid #dd5d54;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+/* Scroll en tabla */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.table-wrapper table {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  width: auto;
+  min-width: 100%;
+  table-layout: auto;
+}
+
+/* Encabezados y celdas */
+#tablaListadosContainer th,
+#tablaListadosContainer td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  white-space: nowrap; /* Sin salto de línea, texto en una sola línea */
+}
+
+
+#tablaListadosContainer td{
+    font-size: 16px;
+}
+
+#tablaListadosContainer th {
+  text-align: center;
+  font-size: 17px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+/* Encabezado */
+#tablaListadosContainer thead tr {
+  background: #f1f7fe;
+  color: #1b3a6e;
+}
+
+#tablaListadosContainer tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+
+
+
+.navegacion-contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+}
+
+.page-btn {
+  background-color: #2e5ab7;
+  border: 2px solid #0a5bb0;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover {
+  background-color: #2c70b8;
+  color: #ffffff;
+}
+
+.btn-volver {
+  background-color: #6c757d;
+  border: 2px solid #5a6268;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+  background-color: #5a6268;
+}

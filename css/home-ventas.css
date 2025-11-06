@@ -1,0 +1,162 @@
+/* Fuente moderna y reinicio básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #064584;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-radius: 0px 0px 20px 0px;
+}
+
+
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.nav-links li a:hover {
+  background: #0d59a4;
+  border-radius: 10px;
+}
+
+/* ===== HAMBURGER MENU (Mobile) ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+/* ===== HERO TEXT ===== */
+h1 {
+  animation: fadeInDown 1s ease;
+}
+
+p {
+  animation: fadeInUp 1.2s ease;
+}
+
+/* ===== DINÁMICOS ===== */
+#contenidoDinamico {
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  min-height: 200px;
+  transition: all 0.3s ease;
+  margin-left: 850px; /* O el valor que prefieras */
+
+}
+/* ===== IMÁGENES DECORATIVAS ===== */
+
+/* Imagen centrada verticalmente a la izquierda (atencion.png) */
+.imagen-centro-izquierda {
+  position: fixed;
+  left: 50px;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 570px;
+  z-index: 1000;
+}
+
+/* Imagen en esquina inferior izquierda (logo1.png) */
+.imagen-esquina {
+  position: fixed;
+  bottom: 10px;
+  left: 20px;
+  opacity: 0.95;
+  z-index: 10;
+  width: 420px;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background: #0073e6;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    display: none;
+  }
+
+  .nav-links li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .imagen-centro-izquierda {
+    display: none;
+  }
+}

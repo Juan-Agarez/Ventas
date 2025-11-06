@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario</title>
+  <link rel="stylesheet" href="css/inventario.css">
+  <link rel="stylesheet" href="css/fontawesome/all.min.css"> 
+  
+</head>
+<body>
+
+  <div id="tablaInventarioContainer">
+    <button class="close-btn-entregas" onclick="closeTablaInventario()">X</button>
+    <h1><i class="fas fa-boxes"></i> Inventario</h1>
+    <div id="panelFiltros"></div>
+
+    <div id="tablaInventarioWrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Número</th>
+            <th>Referencia</th>
+            <th>Metros</th>
+            <th>Peso</th>
+            <th>Tipo Carrete</th>
+            <th>Reservado</th>
+            <th>Ciudad</th>
+            <th>Pedido Siigo</th>
+            <th>Orden de Compra</th>
+          </tr>
+        </thead>
+        <tbody id="tablaInventarioBody">
+          <!-- Fila de prueba 1 -->
+          <tr>
+            <td>1vwrcvhwbhhcvbwhcbwhcbwhgchwehwbghwgchwfeh</td>
+            <td>ABC123wcwcwecwecfewhvbhbgherfgher</td>
+            <td>50wvwvfww</td>
+            <td>5ffwfwrfwfw kg</td>
+            <td>Tipofwfwfwfwf A</td>
+            <td>Noergergergegegeg</td>
+            <td>Bogotárgegergergeg</td>
+            <td>123456ergegegeg</td>
+            <td>654321gregegergegergthrthrth</td>
+          </tr>
+          <!-- Fila de prueba 2 -->
+          <tr>
+            <td>2</td>
+            <td>XYZ456</td>
+            <td>30</td>
+            <td>3 kg</td>
+            <td>Tipohhfbwhfgshgfhsbvfshbfhsbvfhsvfhsrfshsr</td>
+            <td>Sí</td>
+            <td>Medellín</td>
+            <td>654321</td>
+            <td>123456</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="navegacion-contenedor">
+      <!-- Botones de paginación (izquierda) -->
+      <div class="pagination">
+        <button class="page-btn" onclick="cambiarPagina('prev')">« Anterior</button>
+        <button class="page-btn" onclick="cambiarPagina('next')">Siguiente »</button>
+      </div>
+
+      <!-- Botón de regreso (derecha) -->
+      <div class="volver-container">
+        <button class="btn-volver" onclick="volver()">Regresar</button>
+      </div>
+    </div>
+
+
+  </div>
+<script src="js/inventario.js" ></script> 
+</body>
+</html>

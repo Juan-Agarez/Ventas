@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Pedidos</title>
+  <link rel="stylesheet" href="css/pedidos.css">
+
+  <!-- Flatpickr -->
+  <link rel="stylesheet" href="css/flatpickr/flatpickr.min.css" />
+  <script src="js/flatpickr/flatpickr.min.js"></script>
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/fontawesome/all.min.css">
+
+</head>
+<body>
+
+  <div class="contenedor-formularios">
+   <div class="formulario-pedido">
+      <h2>Información de Pedido</h2>
+
+      <div class="form-grupo">
+        <label for="ordenCompra"><i class="fas fa-receipt"></i> Orden de Compra</label>
+        <input type="text" id="ordenCompra" placeholder="10740" oninput="validarCamposDestino()">
+      </div>
+
+      <div class="form-grupo">
+        <label for="fechaOrden"><i class="fas fa-calendar-alt"></i> Fecha de Orden</label>
+        <input type="text" id="fechaOrden" oninput="validarCamposDestino()">
+      </div>
+
+      <div class="form-grupo">
+        <label for="numeroSIGO"><i class="fas fa-file-alt"></i> Código Siigo</label>
+        <input type="text" id="numeroSIGO" placeholder="1269876" oninput="validarCamposDestino()">
+      </div>
+
+      <div class="form-grupo">
+        <label for="clienteSelect"><i class="fas fa-users"></i> Cliente</label>
+        <select id="clienteSelect" onchange="actualizarContacto(); validarCamposDestino()">
+          <option value="">Seleccione un cliente</option>
+          <option value="cliente1">Empresa Alfa</option>
+          <option value="cliente2">Comercial Beta</option>
+          <option value="cliente3">Distribuidora Gamma</option>
+        </select>
+      </div>
+
+      <div class="form-grupo">
+        <label for="contacto"><i class="fas fa-user"></i> Contacto</label>
+        <input type="text" id="contacto" readonly>
+      </div>
+
+      <div class="form-grupo">
+        <label for="telefono"><i class="fas fa-phone-alt"></i> Teléfono</label>
+        <input type="text" id="telefono" readonly>
+      </div>
+    </div>
+
+
+    <div class="formulario-destino">
+      <h2>Información de Despacho</h2>
+
+      <div class="form-grupo">
+        <label for="departamentoEntrega"><i class="fas fa-map"></i> Departamento</label>
+        <input type="text" id="departamentoEntrega" placeholder="Selecciona un departamento..." oninput="filtrarDepartamentos()" autocomplete="off">
+        <ul id="sugerenciasDepartamentos" class="sugerencias oculto"></ul>
+      </div>
+
+      <div class="form-grupo">
+        <label for="ciudadEntrega"><i class="fas fa-city"></i> Ciudad</label>
+        <input type="text" id="ciudadEntrega" placeholder="Ciudad" oninput="filtrarCiudades()" autocomplete="off">
+        <ul id="sugerenciasCiudades" class="sugerencias oculto"></ul>
+      </div>
+
+      <div class="form-grupo">
+        <label for="telefonoDestino"><i class="fas fa-phone-alt"></i> Teléfono</label>
+        <input type="text" id="telefonoDestino" placeholder="Teléfono" oninput="validarCamposDestino()">
+      </div>
+
+      <div class="form-grupo">
+        <label for="contactoDestino"><i class="fas fa-user"></i> Contacto</label>
+        <input type="text" id="contactoDestino" placeholder="Nombre contacto" oninput="validarCamposDestino()">
+      </div>
+
+      <div class="form-grupo">
+        <label for="direccionEntrega"><i class="fas fa-map-marked-alt"></i> Dirección</label>
+        <input type="text" id="direccionEntrega" placeholder="Calle, número, etc." oninput="validarCamposDestino()">
+      </div>
+
+     <!-- Contenedor para los botones -->
+        <div class="contenedor-botones">
+        <button id="btnGuardar" disabled onclick="guardarDatos(event)">
+            <i class="fas fa-save"></i> Guardar
+        </button>
+
+        <button id="btnVerPedidos" class="btn-accion" onclick="mostrarTablaPedidos()">
+            <i class="fas fa-table"></i> pedidos
+        </button>
+
+        </div>
+
+    </div>
+
+<!-- Contenedor de la tabla de pedidos -->
+<div id="tablaPedidosContainer">
+  <!-- Botón de cierre X -->
+  <button class="close-btn-entregas" onclick="closeTablaPedidos()">×</button>
+
+  <h2>Pedidos Registrados</h2>
+
+  <!-- Botones Agregar, Eliminar, Modificar -->
+  <div class="botones-acciones">
+    <button id="btnAgregarPedido" title="Agregar pedido">
+      <i class="fas fa-plus"></i>
+    </button>
+    <button id="btnEliminarPedido" title="Eliminar pedido">
+      <i class="fas fa-trash"></i>
+    </button>
+    <button id="btnModificarPedido" title="Modificar pedido">
+      <i class="fas fa-pen"></i>
+    </button>
+  </div>
+
+  <!-- Envolvemos la tabla en este div para scroll -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Código Siigo</th>
+          <th>Referencia</th>
+          <th>Cantidad</th>
+          <th>Unidad</th>
+          <th>Metros/Carrete</th>
+          <th>Valor Unitario</th>
+          <th>Fecha Solicitada</th>
+          <th>Observaciones</th>
+          <th>Ficha Técnica</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody id="tablaPedidosBody">
+        <tr>
+          <td>1269876223424</td>
+          <td>Referencia</td>
+          <td>50</td>
+          <td>UnidadesWRCFWRF</td>
+          <td>100233</td>
+          <td>$20003333</td>
+          <td>2025-09-303333</td>
+          <td>Entrega rápidaCEFDEDEDE</td>
+          <td><a href="#" target="_blank">Ver ficha</a></td>
+          <td>
+            <button onclick="alert('Editar pedido')" title="Editar">
+              <i class="fas fa-pen"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="navegacion-contenedor">
+      <!-- Botones de paginación (izquierda) -->
+      <div class="pagination">
+        <button class="page-btn" onclick="cambiarPagina('prev')">« Anterior</button>
+        <button class="page-btn" onclick="cambiarPagina('next')">Siguiente »</button>
+      </div>
+
+      <!-- Botón de regreso (derecha) -->
+      <div class="volver-container">
+        <button class="btn-volver" onclick="volver()">Regresar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal para agregar pedido -->
+<div id="modalAgregarPedido" style="display:none; align-items:center; justify-content:center;">
+  <div>
+    <!-- Botón de cierre -->
+    <button onclick="cerrarModalAgregar()">X</button>
+
+    <h2>Agregar nuevo pedido</h2>
+
+        <!-- LÍNEA 1 -->
+    <div class="linea-formulario">
+    <div class="form-grupo">
+        <label>Código Siigo</label>
+        <input type="text" id="codigoSIGO">
+    </div>
+    <div class="form-grupo">
+        <label>Referencia</label>
+        <input type="text" id="referencia">
+    </div>
+    </div>
+
+    <!-- LÍNEA 2 -->
+    <div class="linea-formulario">
+    <div class="form-grupo">
+        <label>Cantidad Solicitada</label>
+        <input type="number" id="cantidadSolicitada" min="1">
+    </div>
+    <div class="form-grupo">
+        <label>Unidad</label>
+        <select id="unidad">
+        <option value="metros">Metros</option>
+        <option value="kilogramos">Kilogramos</option>
+        </select>
+    </div>
+    <div class="form-grupo">
+        <label>Metros por Carrete</label>
+        <input type="number" id="metrosCarrete">
+    </div>
+    </div>
+
+    <!-- LÍNEA 3 -->
+    <div class="linea-formulario">
+    <div class="form-grupo">
+        <label>Fecha Solicitada</label>
+        <input type="text" id="fechaSolicitada" placeholder="Selecciona una fecha">
+    </div>
+    <div class="form-grupo">
+        <label>Valor Unitario</label>
+        <input type="number" id="valorUnitario" min="0">
+    </div>
+    </div>
+
+    <!-- LÍNEA 4 -->
+    <div class="form-grupo observaciones">
+    <label>Observaciones</label>
+    <input type="text" id="observaciones" placeholder="Añade detalles adicionales...">
+    </div>
+
+    <!-- LÍNEA 5: FICHA TÉCNICA -->
+    <div class="linea-formulario">
+    <div class="form-grupo" style="flex: 1;">
+        <label>Ficha Técnica</label>
+        <div style="display: flex; align-items: center;">
+        <input type="text" id="nombreFicha" placeholder="Sin archivo seleccionado" readonly>
+        <button onclick="document.getElementById('fichaTecnica').click()" title="Agregar ficha técnica">
+            <i class="fas fa-plus"></i>
+        </button>
+        </div>
+    </div>
+    <input type="file" id="fichaTecnica" style="display:none;" onchange="mostrarNombreFicha()">
+    </div>
+
+
+    <!-- Botón Crear -->
+    <button id="btnCrearPedido" class="btn-accion" onclick="crearPedido()">Crear</button>
+  </div>
+</div>
+
+
+
+
+  </div>
+  
+  <script src="js/pedidos.js"></script>
+</body>
+</html>

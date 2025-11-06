@@ -12,7 +12,6 @@ color: #1e2a3a;
 
 
 
-
 .menu-inicio {
   position: relative; 
 }
@@ -169,13 +168,18 @@ th, td {
 
 
 
+
  .naipes {
     position: fixed;
     top: 100px;
     left: 30px;
-    width: 500px;
+    width: 200px;
     height: 350px;
     z-index: 1;
+  }
+
+  .carta-frontal{
+    width: 500px;
   }
 
 
@@ -186,7 +190,7 @@ th, td {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  width: 500px; 
+  width: 450px; 
   z-index: 9999;
 }
 
@@ -276,11 +280,11 @@ nav.menu-inicio button:not(.btn-revisar):hover::after {
 
 #entregasContainer {
 position: fixed;
-top: 10vh;
-left: 25%;
+top: 70vh;
+left: 15%;
 transform: translateX(-50%);
-width: 80vw;
-max-width: 900px;
+width: 80px;
+max-width: 600px !important;
 height: 85vh;
 background: #fff;
 box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
@@ -294,6 +298,7 @@ gap: 20px;
 
 #entregasContainer.show {
 display: flex;
+width: 700px !important;
 }
 
 .entregas-content {
@@ -308,18 +313,20 @@ overflow-y: auto;
 flex: 1;
 display: flex;
 flex-direction: column;
+width: 100%;
+max-width: 500px;
 }
 
 .formulario-pedido h2 {
 font-weight: 800;
-font-size: 1.8rem;
-margin-bottom: 24px;
+font-size: 27px;
+margin-bottom: 14px;
 color: #153c91;
 text-align: center;
 }
 
 .form-grupo {
-margin-bottom: 20px;
+margin-bottom: 15px;
 display: flex;
 flex-direction: column;
 }
@@ -366,9 +373,9 @@ cursor: pointer;
 }
 
 .btn-destino {
-background-color: #1f4fbf;
+background-color: #3560c5;
 color: #fff;
-border: none;
+border: 2px solid #11337e;
 padding: 10px 15px;
 border-radius: 20px;
 font-weight: 600;
@@ -380,14 +387,12 @@ font-size: 17px;
 
 .formulario-destino {
 display: none;
-background-color: #f4f9ff;
 padding: 20px;
 border-radius: 18px;
-box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
 }
 
 .formulario-destino.show {
-display: flex;
+display: block;
 }
 
 @media (max-width: 768px) {
@@ -397,9 +402,9 @@ flex-direction: column;
 }
 
 #btnGuardar {
-background-color: #1f4fbf;
+background-color: #10a366;
 color: #fff;
-border: none;
+border: 2px solid #187042;
 padding: 12px 20px;
 border-radius: 20px;
 font-weight: 600;
@@ -407,32 +412,31 @@ font-size: 16px;
 cursor: pointer;
 transition: background-color 0.3s ease, opacity 0.3s ease;
 margin-bottom: 20px;
+width: 100%;
 }
 
 #btnGuardar:disabled {
-background-color: #9fb3df;
+background: #17429f;
+border: none;
 cursor: not-allowed;
 opacity: 0.6;
 }
 
 .btn-accion,
-#btnGuardar {
-background-color: #1f4fbf;
+#btnVerPedidos {
+background-color: #3560c5;
 color: #fff;
-border: none;
+border: 2px solid #11337e;
 padding: 12px 20px;
 border-radius: 20px;
 font-weight: 600;
 font-size: 16px;
 cursor: pointer;
 transition: background-color 0.3s ease, opacity 0.3s ease;
+width: 100%;
 }
 
-#btnGuardar:disabled {
-background-color: #9fb3df;
-cursor: not-allowed;
-opacity: 0.6;
-}
+
 
 .btn-accion i {
 font-size: 24px;
@@ -619,6 +623,24 @@ accent-color: #F44336;
   overflow: visible;
   
 }
+
+#tablaListadosContainer tbody{
+  font-size: 15px;
+}
+
+#tablaWrapper {
+  max-height: 480px;
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  min-width: 100%; /* Esto es clave */
+  display: block;  /* Asegura que el scroll funcione correctamente */
+}
+
+
+
 
 /* Estado minimizado: se mueve fuera de pantalla (izquierda o derecha) y baja opacidad */
 #tablaListadosContainer.minimized {

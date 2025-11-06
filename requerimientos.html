@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requerimientos</title>
+  <link rel="stylesheet" href="css/requerimientos.css">
+  <link rel="stylesheet" href="css/fontawesome/all.min.css">
+</head>
+<body>
+
+  <!-- CONTENEDOR DE LA TABLA DE REQUERIMIENTOS -->
+  <div id="tablaRequerimientoContainer">
+    <button class="close-btn-entregas" onclick="closeTablaRequerimiento()">X</button>
+
+    <h1><i class="fas fa-clipboard-list"></i> Requerimientos</h1>
+
+    <!-- Info fija del requerimiento -->
+    <div style="margin-bottom: 20px; display: flex; gap: 40px; font-size: 18px; color: #1b3a6e;">
+      <div><strong>Requerimiento:</strong>#</div>
+      <div><strong>Fecha solicitada:</strong> #</div>
+    </div>
+
+    <!-- TABLA -->
+    <div id="tablaRequerimientoWrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Código Siigo</th>
+            <th>Referencia</th>
+            <th>Color Aislamiento</th>
+            <th>Cantidad</th>
+            <th>Metros</th>
+            <th>Fecha Solicitada</th>
+            <th>Observaciones</th>
+            <th>Ver</th>
+          </tr>
+        </thead>
+        <tbody id="tablaRequerimientoBody">
+          <!-- Fila de prueba 1 -->
+          <tr>
+            <td>SI12345</td>
+            <td>REF123</td>
+            <td>Rojo</td>
+            <td>100</td>
+            <td>200</td>
+            <td>2023-10-15</td>
+            <td>Sin observaciones</td>
+            <td><button>Ver</button></td>
+          </tr>
+          <!-- Fila de prueba 2 -->
+          <tr>
+            <td>SI67890</td>
+            <td>REF456</td>
+            <td>Azul</td>
+            <td>50</td>
+            <td>150</td>
+            <td>2023-10-20</td>
+            <td>Urgente</td>
+            <td><button>Ver</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+     <div class="navegacion-contenedor">
+      <!-- Botones de paginación (izquierda) -->
+      <div class="pagination">
+        <button class="page-btn" onclick="cambiarPagina('prev')">« Anterior</button>
+        <button class="page-btn" onclick="cambiarPagina('next')">Siguiente »</button>
+      </div>
+
+      <!-- Botón de regreso (derecha) -->
+      <div class="volver-container">
+        <button class="btn-volver" onclick="volver()">Regresar</button>
+      </div>
+    </div>
+
+
+  </div>
+<script src="js/requerimientos.js" defer></script> 
+</body>
+</html>
